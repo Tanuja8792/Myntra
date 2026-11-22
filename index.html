@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Myntra-inspired fashion and lifestyle shopping experience.">
+  <title>Myntra | Fashion & Lifestyle</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="top-strip">END OF SEASON SALE • UP TO 70% OFF <span> | </span> FREE SHIPPING ON YOUR FIRST ORDER</div>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Myntra home">M<span>Y</span>NTRA</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav" id="mainNav">
+      <a href="#catalog">MEN</a><a href="#catalog">WOMEN</a><a href="#catalog">KIDS</a><a href="#catalog">HOME</a><a href="#catalog">BEAUTY</a><a class="studio-link" href="#studio">STUDIO <sup>NEW</sup></a>
+    </nav>
+    <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search for products, brands and more"></label>
+    <div class="header-actions">
+      <button class="header-action" aria-label="Profile"><span>♙</span><small>Profile</small></button>
+      <button class="header-action" id="wishlistButton" aria-label="Wishlist"><span>♡</span><small>Wishlist <b id="wishCount">0</b></small></button>
+      <button class="header-action" id="bagButton" aria-label="Shopping bag"><span>▱</span><small>Bag <b id="bagCount">0</b></small></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">THE STYLE EDIT · 2026</p>
+        <h1>Style that<br><em>speaks you.</em></h1>
+        <p>Discover the latest trends across fashion, beauty and lifestyle.</p>
+        <a class="primary-btn" href="#catalog">EXPLORE COLLECTION <span>→</span></a>
+        <div class="hero-note">NEW SEASON. NEW YOU.</div>
+      </div>
+      <div class="hero-art" role="img" aria-label="Fashion collection">
+        <div class="hero-circle"></div>
+        <div class="hero-card hero-card-one"><span>NEW</span><strong>EVERYDAY<br>ESSENTIALS</strong></div>
+        <div class="hero-card hero-card-two"><strong>OWN<br>YOUR<br>STYLE.</strong></div>
+        <div class="hero-caption">FASHION / BEAUTY / LIVING</div>
+      </div>
+    </section>
+
+    <section class="benefits">
+      <div><b>↗</b><span><strong>Trend-first fashion</strong><small>Fresh styles, always</small></span></div>
+      <div><b>◇</b><span><strong>Easy returns</strong><small>14-day return window*</small></span></div>
+      <div><b>⌁</b><span><strong>Secure payments</strong><small>Multiple payment options</small></span></div>
+      <div><b>⚡</b><span><strong>Quick delivery</strong><small>Express options available*</small></span></div>
+    </section>
+
+    <section class="section" id="catalog">
+      <div class="section-heading"><div><p class="eyebrow">CURATED FOR YOU</p><h2>Shop by category</h2></div><p>Find your next favourite</p></div>
+      <div class="category-grid">
+        <button class="category-tile active" data-category="All"><span>✦</span>All styles</button>
+        <button class="category-tile" data-category="Clothing"><span>♧</span>Clothing</button>
+        <button class="category-tile" data-category="Footwear"><span>⌁</span>Footwear</button>
+        <button class="category-tile" data-category="Beauty"><span>✿</span>Beauty</button>
+        <button class="category-tile" data-category="Kids"><span>☼</span>Kids</button>
+        <button class="category-tile" data-category="Home"><span>⌂</span>Home</button>
+      </div>
+    </section>
+
+    <section class="section product-section">
+      <div class="section-heading"><div><p class="eyebrow">HANDPICKED FOR YOUR WARDROBE</p><h2>Trending now</h2></div><div class="sort-wrap"><label for="sortSelect">Sort by</label><select id="sortSelect"><option value="featured">Recommended</option><option value="low">Price: Low to High</option><option value="high">Price: High to Low</option></select></div></div>
+      <div class="product-grid" id="productGrid" aria-live="polite"></div>
+      <p class="demo-note">Product names, prices and images on this page are sample catalogue content for the project demo.</p>
+    </section>
+
+    <section class="ai-banner section">
+      <div><p class="eyebrow">MEET YOUR PERSONAL STYLE ASSISTANT</p><h2>Fashion meets<br><em>intelligence.</em></h2><p>Explore smarter ways to discover your next look.</p></div>
+      <div class="ai-cards">
+        <article><span>✧</span><h3>MyFashionGPT</h3><p>Style inspiration and outfit ideas.</p><a href="#ai-tools">Explore →</a></article>
+        <article><span>◉</span><h3>Virtual Try-On</h3><p>Preview a look before you decide.</p><a href="#ai-tools">Explore →</a></article>
+        <article><span>✿</span><h3>Beauty Analyzer</h3><p>Discover beauty and care inspiration.</p><a href="#ai-tools">Explore →</a></article>
+      </div>
+    </section>
+
+    <section class="section studio" id="studio">
+      <div class="section-heading"><div><p class="eyebrow">INSPIRE · CREATE · SHARE</p><h2>Myntra Studio</h2></div><p>Looks and ideas from the style community</p></div>
+      <div class="studio-grid">
+        <article class="studio-card studio-one"><span>01 / GLAMSTREAM</span><h3>Find your<br>next look.</h3></article>
+        <article class="studio-card studio-two"><span>02 / CREATOR LOOKS</span><h3>Style stories<br>worth sharing.</h3></article>
+        <article class="studio-card studio-three"><span>03 / GLAM CLAN</span><h3>Good style.<br>Great company.</h3></article>
+      </div>
+    </section>
+
+    <section class="loyalty section" id="ai-tools">
+      <div><p class="eyebrow">MORE THAN SHOPPING</p><h2>Make every style<br>moment count.</h2></div>
+      <div class="loyalty-items"><div><b>01</b><strong>Myntra Insider</strong><p>Member benefits and rewards concept.</p></div><div><b>02</b><strong>Myntra Move</strong><p>Discover active-lifestyle inspiration.</p></div><div><b>03</b><strong>Social sharing</strong><p>Share products and favourite looks.</p></div></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-main"><div><a class="brand footer-brand" href="#">M<span>Y</span>NTRA</a><p>Fashion is what you make it.</p></div><div><h4>SHOP</h4><a href="#catalog">Clothing</a><a href="#catalog">Footwear</a><a href="#catalog">Beauty</a><a href="#catalog">Home & Living</a></div><div><h4>HELP</h4><a href="#footer-info">Contact us</a><a href="#footer-info">Shipping information</a><a href="#footer-info">Returns & refunds</a></div><div><h4>EXPERIENCE</h4><a href="#studio">Myntra Studio</a><a href="#ai-tools">Style discovery</a><a href="#ai-tools">Myntra Insider</a></div></div>
+    <div class="footer-bottom" id="footer-info"><span>© 2026 Myntra-inspired project by Tanuja Achari.</span><span>Demo interface · Not affiliated with Myntra</span></div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
