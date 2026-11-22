@@ -2,11 +2,11 @@ const products = [
   {id:1,name:"Textured Relaxed Shirt",brand:"Roadster",category:"Clothing",price:899,old:1499,discount:"40% OFF",tag:"BESTSELLER",image:"https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=700&q=85"},
   {id:2,name:"Everyday Classic Sneakers",brand:"Campus",category:"Footwear",price:1299,old:1999,discount:"35% OFF",tag:"TRENDING",image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=85"},
   {id:3,name:"Minimal Gold-Tone Watch",brand:"DressBerry",category:"Accessories",price:1599,old:2499,discount:"36% OFF",tag:"NEW",image:"https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=700&q=85"},
-  {id:4,name:"Daily Glow Skincare Set",brand:" skincare edit",category:"Beauty",price:699,old:999,discount:"30% OFF",tag:"JUST IN",image:"https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=700&q=85"},
+  {id:4,name:"Daily Glow Skincare Set",brand:"Beauty Edit",category:"Beauty",price:699,old:999,discount:"30% OFF",tag:"JUST IN",image:"https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=700&q=85"},
   {id:5,name:"Structured Everyday Tote",brand:"Style Union",category:"Accessories",price:1199,old:1899,discount:"37% OFF",tag:"POPULAR",image:"https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=700&q=85"},
   {id:6,name:"Soft Cotton Home Cushion",brand:"Home Centre",category:"Home",price:549,old:899,discount:"39% OFF",tag:"HOME EDIT",image:"https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=700&q=85"},
   {id:7,name:"Weekend Casual Jacket",brand:"Roadster",category:"Clothing",price:1899,old:2999,discount:"37% OFF",tag:"TRENDING",image:"https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=700&q=85"},
-  {id:8,name:"Kids Everyday Backpack",brand:"ეტ",category:"Kids",price:799,old:1299,discount:"38% OFF",tag:"NEW",image:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=700&q=85"}
+  {id:8,name:"Kids Everyday Backpack",brand:"Tiny Tribe",category:"Kids",price:799,old:1299,discount:"38% OFF",tag:"NEW",image:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=700&q=85"}
 ];
 let activeCategory = "All";
 let searchTerm = "";
