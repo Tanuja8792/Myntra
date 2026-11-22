@@ -88,7 +88,7 @@ def checkout(request):
         total += product.price * qty
     if request.method == "POST":
         full_name = request.POST.get("full_name", "").strip()
-        email = request.POST.get("email", "").strip()
+        email = request.user.email.strip()
         phone = request.POST.get("phone", "").strip()
         address = request.POST.get("address", "").strip()
         city = request.POST.get("city", "").strip()
