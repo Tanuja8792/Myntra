@@ -1,26 +1,52 @@
 # Myntra - Fashion & Lifestyle Shopping App Clone
 
-This project is a front-end clone of the Myntra app.
+A responsive, Myntra-inspired fashion and lifestyle shopping **front-end demo** created by Tanuja Achari using HTML, CSS and JavaScript.
 
 ## Features
 
-- Catalog: Clothing, Footwear, Beauty, Kids, Home from 3500+ Brands
-- Search & Filters: Size, Price, Brand, Fit, Fabric, Vernacular Search
-- Wishlist & Social Sharing
-- AI Discovery: MyFashionGPT, Virtual Try-On, Beauty Analyzer
-- Social Shopping: Myntra Studio, GlamStream, Glam Clan
-- Delivery: M-Now 30-min, Express Delivery, 14 Days Return
-- Payments: UPI, COD, Cards, EMI, Gift Cards
-- Loyalty: Myntra Insider, Myntra Move
+- **Catalog:** Sample products across Clothing, Footwear, Beauty, Kids, Home and Accessories.
+- **Search & sorting:** Search product names, brands and categories; sort by price.
+- **Category filters:** Browse products by category.
+- **Wishlist:** Add and remove products from your wishlist.
+- **Shopping bag:** Add products and view the demo item count and total.
+- **AI discovery showcase:** MyFashionGPT, Virtual Try-On and Beauty Analyzer feature sections.
+- **Social shopping showcase:** Myntra Studio, GlamStream, Creator Looks and Glam Clan sections.
+- **Delivery and returns information:** Express delivery and 14-day return concepts are shown as informational UI.
+- **Payments and loyalty showcase:** UPI, COD, cards, EMI, gift cards, Myntra Insider and Myntra Move are listed as planned service concepts.
 
 ## Tech Stack
 
-HTML, CSS, JavaScript
+- HTML5
+- CSS3
+- Vanilla JavaScript
 
-<!-- Myntra App Clone by Tanuja -->
-<!-- Header: Logo, Menu, Search, Wishlist, Bag -->
-<!-- Hero Section: Fashion & Lifestyle Shopping -->
-<!-- AI Section: MyFashionGPT, Virtual Try-On, Beauty Analyzer -->
-<!-- Catalog Section: Products with Filters, Price, Discount -->
-<!-- Studio Section: GlamStream, Creator Looks, Social Shopping -->
-<!-- Footer: Myntra Insider, Payments, Delivery, Returns -->
+## Project Structure
+
+```
+Myntra/
+├── index.html
+├── style.css
+├── script.js
+└── README.md
+```
+
+## Run Locally
+
+1. Download or clone this repository.
+2. Open the project folder.
+3. Open `index.html` in your browser.
+
+No API key, backend server or package installation is required for this front-end demo.
+
+## Important Notes
+
+- Product names, prices and catalogue entries are sample/demo data.
+- Product photos are loaded from remote Unsplash image URLs, so an internet connection is needed to display them.
+- Wishlist and shopping bag data are held in the current browser session and are not saved to a database.
+- AI discovery cards are showcase sections; they do not connect to live AI services.
+- Payment, checkout, delivery tracking, account login, loyalty points and order management are not connected to real services.
+- This is an independent educational project inspired by a fashion shopping interface. It is not affiliated with or endorsed by Myntra.
+
+## Author
+
+**Tanuja Achari**
