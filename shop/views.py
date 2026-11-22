@@ -3,11 +3,10 @@ from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm
 from django.core.mail import send_mail
 from django.db import transaction
 from django.shortcuts import get_object_or_404, redirect, render
-from django.utils.text import slugify
+from .forms import SignupForm
 from .models import Category, Product, Order, OrderItem
 
 def home(request):
@@ -39,7 +38,7 @@ def product_detail(request, slug):
 def signup(request):
     if request.user.is_authenticated:
         return redirect("home")
-    form = UserCreationForm(request.POST or None)
+    form = SignupForm(request.POST or None)
     if request.method == "POST" and form.is_valid():
         user = form.save()
         login(request, user)
@@ -106,16 +105,13 @@ def checkout(request):
                 product.stock -= qty
                 product.save(update_fields=["stock"])
             request.session["cart"] = {}
-            try:
-                send_mail(
-                    subject=f"Your Myntra demo order #{order.pk} is confirmed",
-                    message=f"Hello {order.full_name},\n\nThank you for your order.\nOrder ID: #{order.pk}\nTotal: ₹{order.total_amount}\nPayment: {order.payment_method}\n\nWe will share further updates when the order status changes.",
-                    from_email=settings.DEFAULT_FROM_EMAIL,
-                    recipient_list=[order.email],
-                    fail_silently=True,
-                )
-            except Exception:
-                pass
+            send_mail(
+                subject=f"Your Myntra demo order #{order.pk} is confirmed",
+                message=f"Hello {order.full_name},\n\nThank you for your order.\nOrder ID: #{order.pk}\nTotal: ₹{order.total_amount}\nPayment: {order.payment_method}\n\nWe will share further updates when the order status changes.",
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=[order.email],
+                fail_silently=True,
+            )
             return redirect("order_success", order_id=order.pk)
     return render(request, "shop/checkout.html", {"items": products, "total": total})
 
