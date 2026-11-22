@@ -1,4 +1,3 @@
-# Myntra
 # Myntra - Fashion & Lifestyle Shopping App Clone
 
 This project is a front-end clone of the Myntra app.
