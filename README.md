@@ -1,52 +1,66 @@
-# Myntra - Fashion & Lifestyle Shopping App Clone
+# Myntra – Fashion & Lifestyle Shopping App
 
-A responsive, Myntra-inspired fashion and lifestyle shopping **front-end demo** created by Tanuja Achari using HTML, CSS and JavaScript.
+A Myntra-inspired educational e-commerce project. The original static HTML/CSS/JavaScript storefront is retained on the `main` branch. The Django + MySQL upgrade is being developed on the `django-upgrade` branch.
 
-## Features
+## Current Django features
 
-- **Catalog:** Sample products across Clothing, Footwear, Beauty, Kids, Home and Accessories.
-- **Search & sorting:** Search product names, brands and categories; sort by price.
-- **Category filters:** Browse products by category.
-- **Wishlist:** Add and remove products from your wishlist.
-- **Shopping bag:** Add products and view the demo item count and total.
-- **AI discovery showcase:** MyFashionGPT, Virtual Try-On and Beauty Analyzer feature sections.
-- **Social shopping showcase:** Myntra Studio, GlamStream, Creator Looks and Glam Clan sections.
-- **Delivery and returns information:** Express delivery and 14-day return concepts are shown as informational UI.
-- **Payments and loyalty showcase:** UPI, COD, cards, EMI, gift cards, Myntra Insider and Myntra Move are listed as planned service concepts.
+- Separate homepage and collections page.
+- Category-specific product listings and product detail pages.
+- Django signup and login.
+- Session-based shopping bag.
+- Checkout with Cash on Delivery demo orders.
+- Saved order history and Django admin management.
+- Order confirmation email support (SMTP configuration required).
+- MySQL configuration through environment variables; SQLite is used by default for the first local run.
 
-## Tech Stack
+## Technology
 
-- HTML5
-- CSS3
-- Vanilla JavaScript
+- Python and Django
+- MySQL (configurable; SQLite default for initial setup)
+- HTML, CSS
+- Django authentication and email framework
 
-## Project Structure
+## Project setup (Windows)
 
-```
-Myntra/
-├── index.html
-├── style.css
-├── script.js
-└── README.md
-```
+1. Install Python 3.11 or newer and MySQL Server 8.
+2. Clone this repository and switch to the `django-upgrade` branch:
+   ```bash
+   git clone https://github.com/Tanuja8792/Myntra.git
+   cd Myntra
+   git checkout django-upgrade
+   ```
+3. Create and activate a virtual environment:
+   ```bash
+   python -m venv venv
+   venv\Scripts\activate
+   ```
+4. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+5. Copy `.env.example` to `.env`. For the first run, keep `DB_ENGINE=sqlite`.
+6. Create database tables and sample products:
+   ```bash
+   python manage.py makemigrations shop
+   python manage.py migrate
+   python manage.py seed_demo_data
+   python manage.py createsuperuser
+   python manage.py runserver
+   ```
+7. Open http://127.0.0.1:8000/ . Admin is at http://127.0.0.1:8000/admin/.
 
-## Run Locally
+## Enable MySQL
 
-1. Download or clone this repository.
-2. Open the project folder.
-3. Open `index.html` in your browser.
+Create a database named `myntra_db` in MySQL, update `.env` with `DB_ENGINE=mysql`, your database username/password, host and port, then run `python manage.py migrate`.
 
-No API key, backend server or package installation is required for this front-end demo.
+## Enable Gmail order emails
 
-## Important Notes
+For local testing, the default console email backend prints the email in the terminal. To send real emails, configure Gmail SMTP in your private `.env` using a Google App Password (not your normal Gmail password), set `EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend`, and never commit `.env` to GitHub.
 
-- Product names, prices and catalogue entries are sample/demo data.
-- Product photos are loaded from remote Unsplash image URLs, so an internet connection is needed to display them.
-- Wishlist and shopping bag data are held in the current browser session and are not saved to a database.
-- AI discovery cards are showcase sections; they do not connect to live AI services.
-- Payment, checkout, delivery tracking, account login, loyalty points and order management are not connected to real services.
-- This is an independent educational project inspired by a fashion shopping interface. It is not affiliated with or endorsed by Myntra.
+## Important
+
+This is an educational demo. COD orders are recorded in the database; no real payment is processed. Email delivery depends on correct SMTP configuration. Product catalogue entries and prices are sample data. AI tools, real payment gateway, courier integration, stock reservation under high traffic, and production deployment/security hardening are future work.
 
 ## Author
 
-**Tanuja Achari**
+Tanuja Achari
