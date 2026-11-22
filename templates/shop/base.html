@@ -1,0 +1,8 @@
+{% load static %}
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{% block title %}Myntra | Fashion & Lifestyle{% endblock %}</title><link rel="stylesheet" href="{% static 'shop/css/store.css' %}"></head><body>
+<div class="topline">THE STYLE EDIT · FRESH FINDS FOR EVERY YOU</div>
+<header class="header"><a class="logo" href="{% url 'home' %}">M<span>Y</span>NTRA</a><nav><a href="{% url 'collections' %}">CATEGORIES</a><a href="{% url 'collections' %}">COLLECTIONS</a><a href="{% url 'my_orders' %}">MY ORDERS</a></nav><form class="search" action="{% url 'collections' %}" method="get"><input name="q" placeholder="Search collections"><button>⌕</button></form><div class="account">{% if user.is_authenticated %}<span>Hi, {{ user.username }}</span><a href="{% url 'logout' %}">Logout</a>{% else %}<a href="{% url 'login' %}">Login</a><a href="{% url 'signup' %}">Sign up</a>{% endif %}<a href="{% url 'cart' %}">Bag ({{ cart_count }})</a></div></header>
+{% if messages %}<div class="messages">{% for message in messages %}<p>{{ message }}</p>{% endfor %}</div>{% endif %}
+<main>{% block content %}{% endblock %}</main>
+<footer><div class="footer-logo">M<span>Y</span>NTRA</div><p>Fashion is what you make it. Independent educational shopping project.</p><small>Demo project by Tanuja Achari · Not affiliated with Myntra</small></footer>
+</body></html>
