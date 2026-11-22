@@ -154,10 +154,7 @@ class Command(BaseCommand):
                         ),
                         "price": price,
                         "original_price": original_price,
-                        "image_url": (
-                            f"https://loremflickr.com/600/800/{info['photo_tags']}?lock="
-                            f"{list(CATEGORY_DATA).index(category_name) * 50 + index + 1}"
-                        ),
+                        "image_url": info["images"][index % len(info["images"])],
                         "stock": 5 + (index % 46),
                         "available": True,
                     },
