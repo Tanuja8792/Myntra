@@ -10,6 +10,7 @@ from shop.models import Category, Product
 # No Unsplash API key, extra app, or manual photo download is required.
 CATEGORY_DATA = {
     "Women": {
+        "photo_tags": "women,fashion,clothing",
         "description": "Women's clothing, everyday essentials and occasion wear.",
         "category_image": "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=85",
         "brands": ["Style Edit", "Tokyo Talkies", "SASSAFRAS", "DressBerry", "Anouk"],
@@ -26,6 +27,7 @@ CATEGORY_DATA = {
         "description_text": "Designed for versatile styling and comfortable all-day wear. A wardrobe essential with an easy-to-style finish.",
     },
     "Men": {
+        "photo_tags": "men,fashion,clothing",
         "description": "Men's casualwear, workwear and weekend essentials.",
         "category_image": "https://images.unsplash.com/photo-1516257984-b1b4d707412e?auto=format&fit=crop&w=900&q=85",
         "brands": ["Roadster", "HRX", "WROGN", "The Indian Garage Co", "HERE&NOW"],
@@ -42,6 +44,7 @@ CATEGORY_DATA = {
         "description_text": "A versatile men's style made for everyday comfort, easy layering and a clean contemporary look.",
     },
     "Kids": {
+        "photo_tags": "kids,children,clothing",
         "description": "Comfortable, colourful clothing and everyday essentials for kids.",
         "category_image": "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=900&q=85",
         "brands": ["YK", " H&M Kids", "Mini Klub", "Pantaloons Junior", "United Colors of Benetton"],
@@ -58,6 +61,7 @@ CATEGORY_DATA = {
         "description_text": "Made for movement, play and comfort with kid-friendly styling and an easy-care feel.",
     },
     "Footwear": {
+        "photo_tags": "sneakers,shoes,footwear",
         "description": "Sneakers, casual shoes, sandals and everyday footwear.",
         "category_image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=85",
         "brands": ["Puma", "Campus", "Roadster", "HRX", "Red Tape"],
@@ -74,6 +78,7 @@ CATEGORY_DATA = {
         "description_text": "Built for daily comfort and dependable wear, with a versatile design for work, travel and weekends.",
     },
     "Beauty": {
+        "photo_tags": "beauty,skincare,cosmetics",
         "description": "Skincare, makeup, haircare and self-care favourites.",
         "category_image": "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=900&q=85",
         "brands": ["Beauty Edit", "Minimalist", "The Face Shop", "Mamaearth", "Lakme"],
@@ -90,6 +95,7 @@ CATEGORY_DATA = {
         "description_text": "A beauty and personal-care essential for a simple everyday routine. Check the product packaging for ingredients and usage instructions.",
     },
     "Home & Living": {
+        "photo_tags": "home,interior,decor",
         "description": "Home decor, soft furnishings and thoughtful everyday essentials.",
         "category_image": "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=85",
         "brands": ["Home Centre", "Story@Home", "Urban Space", "DDecor", "Home Edit"],
@@ -148,7 +154,10 @@ class Command(BaseCommand):
                         ),
                         "price": price,
                         "original_price": original_price,
-                        "image_url": info["images"][index % len(info["images"])],
+                        "image_url": (
+                            f"https://loremflickr.com/600/800/{info['photo_tags']}?lock="
+                            f"{list(CATEGORY_DATA).index(category_name) * 50 + index + 1}"
+                        ),
                         "stock": 5 + (index % 46),
                         "available": True,
                     },
