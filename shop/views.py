@@ -105,13 +105,26 @@ def checkout(request):
                 product.stock -= qty
                 product.save(update_fields=["stock"])
             request.session["cart"] = {}
-            send_mail(
-                subject=f"Your Myntra demo order #{order.pk} is confirmed",
-                message=f"Hello {order.full_name},\n\nThank you for your order.\nOrder ID: #{order.pk}\nTotal: ₹{order.total_amount}\nPayment: {order.payment_method}\n\nWe will share further updates when the order status changes.",
-                from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=[order.email],
-                fail_silently=True,
-            )
+            try:
+                send_mail(
+                    subject=f"Your Myntra order #{order.pk} is confirmed",
+                    message=(
+                        f"Hello {order.full_name},\n\n"
+                        "Thank you for shopping with Myntra! Your order has been placed successfully.\n\n"
+                        f"Order ID: #{order.pk}\n"
+                        f"Total Amount: ₹{order.total_amount}\n"
+                        f"Payment Method: {order.payment_method}\n"
+                        f"Delivery Address: {order.address}, {order.city} - {order.pincode}\n\n"
+                        "We will share further updates when your order status changes.\n\n"
+                        "Thank you,\nTeam Myntra"
+                    ),
+                    from_email=settings.DEFAULT_FROM_EMAIL,
+                    recipient_list=[order.email],
+                    fail_silently=False,
+                )
+                messages.success(request, f"Order #{order.pk} placed successfully. Confirmation email sent to {order.email}.")
+            except Exception:
+                messages.warning(request, f"Order #{order.pk} was placed, but the confirmation email could not be sent. Please check your email settings.")
             return redirect("order_success", order_id=order.pk)
     return render(request, "shop/checkout.html", {"items": products, "total": total})
 
