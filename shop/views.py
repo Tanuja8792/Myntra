@@ -95,10 +95,12 @@ def checkout(request):
         pincode = request.POST.get("pincode", "").strip()
         if not all([full_name, email, phone, address, city, pincode]):
             messages.error(request, "Please complete all delivery details.")
+        elif request.POST.get("payment_method", "COD") != "COD":
+            messages.error(request, "Cash on Delivery is the only available payment method.")
         else:
             order = Order.objects.create(user=request.user, full_name=full_name, email=email, phone=phone,
                 address=address, city=city, pincode=pincode, total_amount=total,
-                payment_method=request.POST.get("payment_method", "COD"))
+                payment_method="COD", status="CONFIRMED")
             for product, qty in products:
                 OrderItem.objects.create(order=order, product=product, product_name=product.name,
                     unit_price=product.price, quantity=qty)
@@ -107,7 +109,7 @@ def checkout(request):
             request.session["cart"] = {}
             try:
                 send_mail(
-                    subject=f"Your Myntra order #{order.pk} is confirmed",
+                    subject="Your Order is Confirmed!",
                     message=(
                         f"Hello {order.full_name},\n\n"
                         "Thank you for shopping with Myntra! Your order has been placed successfully.\n\n"
@@ -122,9 +124,9 @@ def checkout(request):
                     recipient_list=[order.email],
                     fail_silently=False,
                 )
-                messages.success(request, f"Order #{order.pk} placed successfully. Confirmation email sent to {order.email}.")
+                messages.success(request, f"Order #{order.pk} confirmed with Cash on Delivery. Confirmation email sent to {order.email}.")
             except Exception:
-                messages.warning(request, f"Order #{order.pk} was placed, but the confirmation email could not be sent. Please check your email settings.")
+                messages.warning(request, f"Order #{order.pk} was confirmed with Cash on Delivery, but the confirmation email could not be sent. Please check your email settings.")
             return redirect("order_success", order_id=order.pk)
     return render(request, "shop/checkout.html", {"items": products, "total": total})
 
